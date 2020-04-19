@@ -101,24 +101,23 @@ if(channel==3)
     }
 
     double snr_linear,variance_square,variance,f_term,value,x1,x2,sign_chk;
-
     snr=snr/10;
     snr_linear=pow(10,snr);
     variance_square=1/snr_linear;
-    variance=sqrt(variance_square);
-    for(i=0;i<2*k+4;i++)
+    variance=sqrt(variance_square)/2.45;
+    for(int i=0;i<2*k+4;i++)
     {
         a2[i]=2*a2[i]-1;
     }
     f_term=1/(sqrt(2*3.14)*variance);
-    for(i=0;i<2*k+4;i++)
+    for(int i=0;i<2*k+4;i++)
     {
-        x1=(rand()%400)/1000.0;
-        if(x1<0.130)
-            x1=x1+0.130;
-        x2=(rand()%400)/1000.0;
-        if(x2<0.130)
-            x2=x2+0.130;
+        x1=(rand()%4000)/10000.0;
+        if(x1<0.190)
+            x1=x1+0.190;
+        x2=(rand()%4000)/10000.0;
+        if(x2<0.190)
+            x2=x2+0.190;
         if(x1>x2)
         {
             value=sqrt(-2*variance*log(x1/f_term));
